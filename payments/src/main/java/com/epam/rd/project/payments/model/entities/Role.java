@@ -1,38 +1,33 @@
 package com.epam.rd.project.payments.model.entities;
 
+import com.epam.rd.project.payments.model.enums.RoleType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.ArrayList;
-import java.util.List;
 
 import static javax.persistence.GenerationType.AUTO;
-
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
-public class User {
+@Builder
+public class Role {
 
     @Id
     @GeneratedValue(strategy =  AUTO)
     private Long id;
 
-    private String email;
-    private String password;
-    private String userName;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Role> roles = new ArrayList<>();
+    @Column
+    @Enumerated(EnumType.STRING)
+    private RoleType name;
 
 }

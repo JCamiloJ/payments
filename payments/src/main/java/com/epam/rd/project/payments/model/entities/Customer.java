@@ -3,7 +3,10 @@ package com.epam.rd.project.payments.model.entities;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,22 +17,19 @@ import javax.persistence.OneToMany;
 import java.util.Set;
 
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
-public class Customer {
-
-    @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long id;
+public class Customer extends User {
 
     @Column
-    private String email;
+    private Double balance;
     @Column
-    private String name;
 
     @OneToMany(mappedBy="customer")
-    private Set<CreditCard> creditCards;
+    private Set<Account> accounts;
 
 }
