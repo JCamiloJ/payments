@@ -2,11 +2,14 @@ package com.epam.rd.project.payments.services;
 
 import com.epam.rd.project.payments.model.dtos.RoleDTO;
 import com.epam.rd.project.payments.model.entities.Role;
+import com.epam.rd.project.payments.model.enums.RoleType;
 import com.epam.rd.project.payments.model.mappers.RoleMapper;
 import com.epam.rd.project.payments.repositories.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +25,11 @@ public class RoleServiceImpl implements RoleService {
         Role roleCreated = roleRepository.save(RoleMapper.INSTANCE.mapToEntity(role));
         log.info(String.format(ROLE_CREATED_MESSAGE, role.getName()));
         return RoleMapper.INSTANCE.mapToDTO(roleCreated);
+    }
+
+    @Override
+    public Optional<RoleDTO> findByName(RoleType name) {
+        var roleOptional = roleRepository.findByName(name);
+        return roleOptional.map(RoleMapper.INSTANCE::mapToDTO);
     }
 }

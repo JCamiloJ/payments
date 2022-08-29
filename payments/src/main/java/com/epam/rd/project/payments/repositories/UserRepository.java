@@ -1,6 +1,5 @@
 package com.epam.rd.project.payments.repositories;
 
-import com.epam.rd.project.payments.model.entities.Payment;
 import com.epam.rd.project.payments.model.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

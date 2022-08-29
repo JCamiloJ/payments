@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleRequestDTO {
+public class CreditCardCreationBodyDTO {
 
-    private String userName;
-    private String roleName;
-
+    private String accountNumber;
+    private String username;
+    private String nameInCard;
 }

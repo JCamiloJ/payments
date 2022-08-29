@@ -1,14 +1,23 @@
 package com.epam.rd.project.payments.model.dtos;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.epam.rd.project.payments.model.entities.Role;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerDTO {
 
     private Long id;
     private String email;
-    private String name;
-
+    private String username;
+    private String password;
+    private List<Role> roles = new ArrayList<>();
 }

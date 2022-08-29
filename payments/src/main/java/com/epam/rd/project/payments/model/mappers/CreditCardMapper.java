@@ -1,15 +1,15 @@
 package com.epam.rd.project.payments.model.mappers;
 
-
-import com.epam.rd.project.payments.model.dtos.PaymentDTO;
+import com.epam.rd.project.payments.model.dtos.CreditCardDTO;
 import com.epam.rd.project.payments.model.entities.CreditCard;
 import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CreditCardMapper {
 
-    PaymentMapper INSTANCE = Mappers.getMapper(PaymentMapper.class);
+    CreditCardMapper INSTANCE = Mappers.getMapper(CreditCardMapper.class);
 
-    PaymentDTO mapFromEntity(CreditCard creditCard);
+    CreditCardDTO mapFromEntity(CreditCard creditCard);
 }

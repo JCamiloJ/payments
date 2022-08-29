@@ -73,4 +73,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         var userOptional = userRepository.findByUsername(userName);
         return userOptional.map(UserMapper.INSTANCE::mapFromEntity);
     }
+
+  //  public void assignRoleToRegistry(String userName) {
+
 }

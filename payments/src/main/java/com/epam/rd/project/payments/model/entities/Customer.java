@@ -21,10 +21,9 @@ import java.util.Set;
 @Entity
 public class Customer extends User {
 
-    @Column
-    private Double balance;
-
     @OneToMany(mappedBy="customer")
     private Set<Account> accounts;
 
+    @OneToMany(mappedBy="customer")
+    private Set<Payment> payments;
 }
