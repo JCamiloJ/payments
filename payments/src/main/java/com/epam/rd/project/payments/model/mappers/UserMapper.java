@@ -17,4 +17,7 @@ public interface UserMapper {
     List<RoleDTO> mapToRoleListDTO(List<Role> roles);
     User mapToEntity(UserDTO user);
     List<Role> mapRoleList(List<RoleDTO> roles);
+    RoleDTO mapRole(Role role);
+
+    Role mapRoleDTO(RoleDTO role);
 }

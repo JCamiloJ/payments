@@ -1,6 +1,7 @@
 package com.epam.rd.project.payments.services;
 
 import com.epam.rd.project.payments.model.dtos.RoleDTO;
+import com.epam.rd.project.payments.model.entities.Role;
 import com.epam.rd.project.payments.model.mappers.RoleMapper;
 import com.epam.rd.project.payments.repositories.RoleRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public RoleDTO createRole(RoleDTO role) {
-        var roleCreated = roleRepository.save(RoleMapper.INSTANCE.mapToEntity(role));
+        Role roleCreated = roleRepository.save(RoleMapper.INSTANCE.mapToEntity(role));
         log.info(String.format(ROLE_CREATED_MESSAGE, role.getName()));
         return RoleMapper.INSTANCE.mapToDTO(roleCreated);
     }

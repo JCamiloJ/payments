@@ -5,11 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Builder
-//@Entity
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
 public class Admin extends User {
+
+    @Column
+    private String phone;
 
 }

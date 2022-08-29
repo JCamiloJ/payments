@@ -30,7 +30,7 @@ public class User {
 
     private String email;
     private String password;
-    private String userName;
+    private String username;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();

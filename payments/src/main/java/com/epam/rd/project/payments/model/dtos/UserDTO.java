@@ -17,7 +17,7 @@ public class UserDTO {
     private Long id;
     private String email;
     private String password;
-    private String userName;
+    private String username;
     private List<RoleDTO> roles = new ArrayList<>();
 
 }
