@@ -9,8 +9,5 @@ import java.util.List;
 
 @Repository
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
-    List<Payment> findAll();
-    Payment findById(int id);
-    List<Payment> findByDate(Date date);
 
 }
