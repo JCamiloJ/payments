@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *class that implements the Customer service interface
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j

@@ -19,6 +19,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 
+/**
+ * Class that implements the user service interface
+ *
+ *
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -33,6 +38,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
+
+    /**
+     * Loads an user giving the username
+     *
+     * @return user details to load the user
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var userOptional = userRepository.findByUsername(username);
@@ -57,6 +68,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return UserMapper.INSTANCE.mapFromEntity(userCreated);
     }
 
+    /**
+     * Assigns a role to an existing user giving the username and the role to assign
+     *
+     * @return void
+     */
     @Override
     @Transactional
     public void assignRoleToUser(String userName, RoleType roleType) {
@@ -68,12 +84,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         });
     }
 
+
+    /**
+     * Find the user by the name
+     *
+     * @return the user name
+     */
     @Override
     public Optional<UserDTO> findByUserName(String userName) {
         var userOptional = userRepository.findByUsername(userName);
         return userOptional.map(UserMapper.INSTANCE::mapFromEntity);
     }
-
-  //  public void assignRoleToRegistry(String userName) {
 
 }

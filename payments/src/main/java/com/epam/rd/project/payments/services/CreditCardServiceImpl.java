@@ -18,6 +18,9 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 
+/**
+ * Class that implements the credit card service interface
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -50,6 +53,11 @@ public class CreditCardServiceImpl implements CreditCardService{
         return mapped;
     }
 
+    /**
+     * Validate if a customer exists in the database
+     *
+     * @return a customer object
+     */
     private Customer validateCustomerExists(String username){
         var customerOptional = customerRepository.findByUsername(username);
         if(customerOptional.isPresent()){
@@ -61,6 +69,11 @@ public class CreditCardServiceImpl implements CreditCardService{
         }
     }
 
+    /**
+     * Validate if an account exists in the database
+     *
+     * @return an account object
+     */
     private Account validateAccountExists(String accountNumber){
         var accountOptional = accountRepository.findByAccountNumber(accountNumber);
         if(accountOptional.isPresent()){
@@ -72,6 +85,11 @@ public class CreditCardServiceImpl implements CreditCardService{
         }
     }
 
+    /**
+     * Generate a random number to assign it to a credit card
+     *
+     * @return a string with the generated card number
+     */
     private String generateCardNumber(){
         StringBuilder generateNumber = new StringBuilder("");
         for(int i = 0; i < 4; i++){
@@ -80,6 +98,11 @@ public class CreditCardServiceImpl implements CreditCardService{
         return generateNumber.toString();
     }
 
+    /**
+     * Generate a random cvv number to assign it to a credit card
+     *
+     * @return a string with the generated cvv
+     */
     private String generateCCV(){
         return "" + ((int)(Math.random()*(999-100+1)+100));
     }

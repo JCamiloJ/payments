@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+/**
+ * Class that implements the account service interface
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -43,8 +46,6 @@ public class AccountServiceImpl implements AccountService {
             throw new UserNotFoundException(errorMessage);
         }
     }
-
-
 
 
     /**

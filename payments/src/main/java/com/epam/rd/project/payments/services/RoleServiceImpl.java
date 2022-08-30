@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+
+/**
+ * Class that implements the role service interface
+ *
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -20,6 +25,7 @@ public class RoleServiceImpl implements RoleService {
 
     private final RoleRepository roleRepository;
 
+
     @Override
     public RoleDTO createRole(RoleDTO role) {
         Role roleCreated = roleRepository.save(RoleMapper.INSTANCE.mapToEntity(role));
@@ -27,6 +33,11 @@ public class RoleServiceImpl implements RoleService {
         return RoleMapper.INSTANCE.mapToDTO(roleCreated);
     }
 
+    /**
+     * Find a role by the name
+     *
+     * @return an optional of RoleDTO with the role
+     */
     @Override
     public Optional<RoleDTO> findByName(RoleType name) {
         var roleOptional = roleRepository.findByName(name);

@@ -1,14 +1,10 @@
 package com.epam.rd.project.payments.services;
 
-import com.epam.rd.project.payments.repositories.PaymentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.epam.rd.project.payments.model.dtos.PaymentCreationBodyDTO;
+import com.epam.rd.project.payments.model.dtos.PaymentDTO;
 
-@Service
-public class PaymentService {
-    @Autowired
-    private PaymentRepository paymentRepository;
+public interface PaymentService {
 
-
-
+    PaymentDTO preparePayment(PaymentCreationBodyDTO accountRequest);
+    PaymentDTO makePayment(PaymentCreationBodyDTO accountRequest);
 }
